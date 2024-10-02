@@ -1,0 +1,101 @@
+/* src/components/Header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    width: 100vw;
+    position: fixed;
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hamburger {
+    display: none; /* Ocultar por defecto */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-left: 20px;
+    position: relative; /* Necesario para el dropdown */
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Color al pasar el mouse */
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%; /* Justo debajo del item */
+    left: 0;
+    background-color: orange; /* Cambia el color del fondo del dropdown */
+    color: white;
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Asegúrate de que esté por encima */
+    width: auto; /* Asegúrate de que el dropdown se expanda completamente */
+  }
+  
+  .dropdown-item {
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Color al pasar el mouse en subitems */
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
+    }
+  
+    .nav-list {
+      display: none; /* Ocultar la lista por defecto en pantallas pequeñas */
+      flex-direction: column; /* Cambiar a columna para el menú hamburguesa */
+      position: absolute;
+      top: 60px; /* Ajusta esto si es necesario */
+      left: 0;
+      background-color: orange; /* Asegúrate de que coincida con el color del header */
+      width: 100%; /* Asegúrate de que el menú se expanda completamente */
+      z-index: 1000;
+    }
+  
+    .nav.open .nav-list {
+      display: flex; /* Mostrar la lista cuando el menú está abierto */
+    }
+  
+    .nav-item {
+      margin: 10px 0; /* Añadir márgenes verticales para los items en el menú */
+    }
+  }
+  
